@@ -1,0 +1,26 @@
+body {
+    background: rgb(241, 241, 241);
+}
+.con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh)
+}
+.login-div {
+    width: 400px;
+    height: 500px;
+    background: rgb(255,255,255);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 5px rgb(230,230,230);
+    padding:100px 50px;
+}
+.login-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.login-title {
+    color: rgb(0,21,41);
+}
