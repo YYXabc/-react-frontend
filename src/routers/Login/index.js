@@ -1,19 +1,28 @@
 import React,{Component} from 'react';
 import {Input, Button, Row} from 'antd';
+import getApiOpts from '../../servers';
 import './login.css';
 export default class Login extends Component{
-    componentDidMount() {
-        // let request = new XMLHttpRequest();
-        // let url = "https://yangyuxingblog.cn/testYun/phpServ/test.php?state=a";
-        // request.open('GET', url);
-        // request.onreadystatechange = () => {
-        //     if (request.readyState === 4) {
-        //         if (request.status === 200 || request.status === 304) {
-        //             console.log(request.response);
-        //         }
-        //     }    
-        // }
-        // request.send();
+    state = {
+        pass: "",
+        account: ""
+    }
+    onChangeInput = (e) => {
+        if(e.currentTarget.name === "pass") {
+            this.setState({
+                pass: e.currentTarget.value
+            })
+        }else {
+            this.setState({
+                account: e.currentTarget.value
+            })
+        }
+    }
+    submit = () => {
+        const {account, pass} = this.state;
+        getApiOpts('login',{account , pass}).then((res) =>{
+            console.log(res);
+        });
     }
     render() {
         return(
@@ -23,13 +32,13 @@ export default class Login extends Component{
                         <h1 className='login-title'>超市管理系统</h1>
                     </Row>
                     <Row className='login-row'>
-                        <Input size="large" placeholder="输入账户"></Input>
+                        <Input size="large" placeholder="输入账户" onChange={this.onChangeInput} name="account"></Input>
                     </Row>
                     <Row className='login-row'>
-                        <Input size="large" placeholder="输入密码"></Input>
+                        <Input size="large" placeholder="输入密码" onChange={this.onChangeInput} name="pass"></Input>
                     </Row>
                     <Row className='login-row'>
-                        <Button size="large" type="primary">登陆</Button>
+                        <Button size="large" type="primary" onClick={this.submit}>登陆</Button>
                     </Row>
                 </div>
             </div>
