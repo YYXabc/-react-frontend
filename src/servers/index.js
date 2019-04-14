@@ -15,7 +15,7 @@ const getApiOpts = (methodsName, para = {}) => {
             request.onreadystatechange = function () {
                 if (request.readyState === 4) {
                     if (request.status === 304 || request.status === 200) {
-                        resolve(request.response);
+                        resolve(JSON.parse(request.response));
                     }else {
                         reject(request.response);
                     }

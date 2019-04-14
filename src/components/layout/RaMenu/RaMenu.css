@@ -1,7 +1,23 @@
 html, body {
     height: 100%;
 }
-.test {
+.sider {
     width: 180px;
-    height: calc(100vh);
+    height: calc(94vh);
+}
+.sider-button-div {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header {
+    background: rgb(6, 42,104);
+    display: flex;
+    justify-content: space-between;
+    height: calc(6vh);
+    color: rgb(255,255,255);
+}
+.header-right {
+    display: flex;
 }

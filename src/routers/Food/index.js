@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
-import RaMenu from '../../components/layout/RaMenu/';
+import Page from './components/index';
+import RaMenu from '../../components/layout/RaMenu';
+import { connect } from 'react-redux';
+import {mapStateToProps, mapDispatchToProps} from './model'
 
-class Page extends Component {
+class Food extends Component {
     render() {
+        const {...restProps} = this.props;
         return (
-            <h1>食品</h1>
+            <RaMenu components={Page} {...restProps}/>
         )
     }
 }
- 
-export default class Food extends Component {
-    render() {
-        return (
-            <RaMenu components={Page}/>
-        )
-    }
-}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Food);
